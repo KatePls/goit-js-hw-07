@@ -22,10 +22,8 @@ galleryPictures.insertAdjacentHTML("afterbegin", list);
 galleryPictures.addEventListener("mousedown", selectImage);
 
 function selectImage(event) {
-  console.log("event.target: ", event.target);
   galleryItems.map((img) => {
     if (event.target.src === img.preview) {
-      console.log(img.original);
       const instance = basicLightbox.create(`
         <img class="gallery__link" src="${img.original}" width="800" height="600">`);
       instance.show();
