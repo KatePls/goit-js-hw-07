@@ -5,24 +5,21 @@ const  galleryPictures= document.querySelector(".gallery");
 createGallery();
 
 function createGallery() {
-  const galleryUl = document.createElement("ul");
-  
-  const list = galleryItems.map((img) => {
-    const liElem = document.createElement("li");
-    liElem.classList.add("gallery__item");
-    const imgElem = document.createElement("img");
-    imgElem.classList.add("gallery__image");
-    imgElem.src = img.preview;
-    imgElem.alt = img.description;
-    liElem.append(imgElem);
-    return liElem;
-  });
-  galleryUl.append(...list);
-  galleryUl.classList.add("gallery");
-  galleryPictures.append(galleryUl); 
+  const list = galleryItems.map((img) =>
+  `<div class="gallery__item">
+      <a class="gallery__link" href="${img.original}" target="_self">
+        <img
+          class="gallery__image"
+          src="${img.preview}"
+          data-source="${img.original}"
+          alt="${img.description}"
+        />
+      </a>
+    </div>`).join("");
+galleryPictures.insertAdjacentHTML("afterbegin", list); 
 }
 
-galleryPictures.addEventListener("click", selectImage);
+galleryPictures.addEventListener("mousedown", selectImage);
 
 function selectImage(event) {
   console.log("event.target: ", event.target);
