@@ -19,9 +19,10 @@ function createGallery() {
 galleryPictures.insertAdjacentHTML("afterbegin", list); 
 }
 
-galleryPictures.addEventListener("mousedown", selectImage);
+galleryPictures.addEventListener("click", selectImage);
 
 function selectImage(event) {
+  event.preventDefault();
   galleryItems.map((img) => {
     if (event.target.src === img.preview) {
       const instance = basicLightbox.create(`
