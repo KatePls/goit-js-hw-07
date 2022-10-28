@@ -32,3 +32,18 @@ function selectImage(event) {
     };
   });
 };
+ 
+/*
+galleryPictures.addEventListener("keydown", closeSelectImage);
+
+function closeSelectImage(event) {
+  event.preventDefault();
+  galleryItems.map((img) => {
+    if (event.target.src === img.preview) {
+      const instance = basicLightbox.create(`
+        <img class="gallery__link" src="${img.original}" width="800" height="600">`);
+      instance.show();
+      return;
+    };
+  });
+};*/
