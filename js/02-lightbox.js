@@ -15,14 +15,15 @@ galleryPictures.insertAdjacentHTML("afterbegin", list);
 
 galleryPictures.addEventListener("click", selectImage);
 
-function selectImage(event) {
-  event.preventDefault();
-  let lightbox = new SimpleLightbox('.gallery a',
+let lightbox = new SimpleLightbox('.gallery a',
     {
       captions: true,
       captionSelector: 'img',
       captionsData: 'alt',
       captionDelay: 250
-    });
+  });
+    
+function selectImage(event) {
+  event.preventDefault();
   return
 };

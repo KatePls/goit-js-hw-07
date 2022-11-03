@@ -28,8 +28,9 @@ function selectImage(event) {
       const instance = basicLightbox.create(`<img class="gallery__link" src="${img.original}" width="800" height="600">`);
       instance.show();
       document.addEventListener('keydown', function (event) {
-        if (event.code == "Escape") {
+        if (event.code === "Escape") {
           instance.close();
+          document.removeEventListener;
           return;
         }
       });
